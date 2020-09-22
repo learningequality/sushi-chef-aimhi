@@ -1,0 +1,34 @@
+{
+  "id": "127ca89b251457528538d64a73c12580",
+  "name": "AimHi",
+  "thumbnail": "f934b471baf77efdc4ccf58b0f45d669.png",
+  "language": "en",
+  "description": "The nature-first, curiosity-powered online school.",
+  "tagline": "",
+  "license": null,
+  "source_domain": "www.aimhi.co",
+  "source_id": "aimhi",
+  "ricecooker_version": "0.6.46",
+  "children": [
+    {
+      "title": "Politics",
+      "language": "en",
+      "description": "Politics",
+      "node_id": "e52bb15d1eeb5af588d9223be2e43f7c",
+      "content_id": "24d18a45a61452beb2b6f0165ff0e1cb",
+      "source_domain": "1331a7ca813d5435a92ff04801e281dd",
+      "source_id": "aimhi-child-topic-Politics",
+      "author": "AimHi",
+      "aggregator": "",
+      "provider": "AimHi",
+      "files": [],
+      "tags": [],
+      "kind": "topic",
+      "license": null,
+      "license_description": null,
+      "copyright_holder": "",
+      "questions": [],
+      "extra_fields": "{}"
+    }
+  ]
+}

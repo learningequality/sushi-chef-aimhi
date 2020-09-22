@@ -8,15 +8,18 @@ from ricecooker.config import LOGGER              # Use LOGGER to print messages
 from ricecooker.exceptions import raise_for_invalid_channel
 from le_utils.constants import exercises, content_kinds, file_formats, format_presets, languages
 
+from ricecooker.utils.youtube import YouTubeVideoUtils, YouTubePlaylistUtils
+
+from utils import *
 
 # Run constants
 ################################################################################
-CHANNEL_NAME = "aimhi"                             # Name of Kolibri channel
-CHANNEL_SOURCE_ID = "<yourid>"                              # Unique ID for content source
-CHANNEL_DOMAIN = "<yourdomain.org>"                         # Who is providing the content
+CHANNEL_NAME = "AimHi"                             # Name of Kolibri channel
+CHANNEL_SOURCE_ID = "aimhi"                              # Unique ID for content source
+CHANNEL_DOMAIN = "www.aimhi.co"                         # Who is providing the content
 CHANNEL_LANGUAGE = "en"                                     # Language of channel
-CHANNEL_DESCRIPTION = None                                  # Description of the channel (optional)
-CHANNEL_THUMBNAIL = None                                    # Local path or url to image file (optional)
+CHANNEL_DESCRIPTION = 'The nature-first, curiosity-powered online school.'                                  # Description of the channel (optional)
+CHANNEL_THUMBNAIL = AIMHI_THUMBNAIL_PATH                                   # Local path or url to image file (optional)
 CONTENT_ARCHIVE_VERSION = 1                                 # Increment this whenever you update downloaded content
 
 
@@ -67,9 +70,33 @@ class AimhiChef(SushiChef):
         Returns: ChannelNode
         """
         channel = self.get_channel(*args, **kwargs)  # Create ChannelNode from data in self.channel_info
+        # Get Channel Topics
+        for playlist_id in PLAYLIST_MAP:
+          playlist = YouTubePlaylistUtils(id=playlist_id)
+          playlist_info = playlist.get_playlist_info(use_proxy=False, use_cache=False, youtube_skip_download=False)
 
+          # Get channel description if there is any
+          playlist_description = ''
+          if playlist_info["description"]:
+            playlist_description = playlist_info["description"]
+          else :
+            playlist_description = playlist_info['title']
+          print(playlist_info["title"])
+          print("description "+ playlist_description)
+          print(playlist_info["source_url"])
+          topic_source_id = 'aimhi-child-topic-{0}'.format(playlist_info["title"])
+          topic_node = nodes.TopicNode(
+            title = playlist_info["title"],
+            source_id = topic_source_id,
+            author = "AimHi",
+            provider = "AimHi",
+            description = playlist_description,
+            language = 'en'
+          )
+          channel.add_child(topic_node)
+          
         # TODO: Replace next line with chef code
-        raise NotImplementedError("constuct_channel method not implemented yet...")
+        # raise NotImplementedError("constuct_channel method not implemented yet...")
 
         return channel
 
