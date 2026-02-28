@@ -1,0 +1,34 @@
+{
+  "id": "127ca89b251457528538d64a73c12580",
+  "name": "AimHi",
+  "thumbnail": "f934b471baf77efdc4ccf58b0f45d669.png",
+  "language": "en",
+  "description": "The nature-first, curiosity-powered online school.",
+  "tagline": "",
+  "license": null,
+  "source_domain": "www.aimhi.co",
+  "source_id": "aimhi",
+  "ricecooker_version": "0.6.46",
+  "children": [
+    {
+      "title": "aimhi-test",
+      "language": "en",
+      "description": "test node for aimhi",
+      "node_id": "6e8a6d975f4a5ea49939b8a43c4ae1d5",
+      "content_id": "36d6db06dcda5fffbc8805aa8485c335",
+      "source_domain": "1331a7ca813d5435a92ff04801e281dd",
+      "source_id": "source-test",
+      "author": "aimhi",
+      "aggregator": "",
+      "provider": "aimhi",
+      "files": [],
+      "tags": [],
+      "kind": "topic",
+      "license": null,
+      "license_description": null,
+      "copyright_holder": "",
+      "questions": [],
+      "extra_fields": "{}"
+    }
+  ]
+}
